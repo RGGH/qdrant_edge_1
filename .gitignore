@@ -1,0 +1,54 @@
+# --- Python ---
+__pycache__/
+*.py[cod]
+*$py.class
+*.so
+.Python
+build/
+dist/
+*.egg-info/
+.eggs/
+
+# --- Virtual environments ---
+.venv/
+venv/
+env/
+ENV/
+
+# --- uv ---
+# uv.lock SHOULD be committed for reproducible installs — do not ignore it.
+.uv/
+
+# --- FastEmbed / model cache ---
+# Large downloaded model weights — regenerate via the README's download step
+# rather than committing them.
+models/
+*.onnx
+*.bin
+
+# --- Qdrant Edge shard data ---
+# Local vector store: segments, WAL, and config are runtime data, not source.
+data/
+qdrant-edge-directory/
+*.wal
+edge_config.json
+
+# --- Sample/local media (optional) ---
+# Uncomment if your images/ folder should stay local-only rather than
+# tracked in the repo (e.g. large or user-specific test images).
+# images/
+
+# --- Editors / OS ---
+.vscode/
+.idea/
+*.swp
+.DS_Store
+Thumbs.db
+
+# --- Env / secrets ---
+.env
+.env.*
+!.env.example
+
+# --- Logs ---
+*.log

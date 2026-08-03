@@ -1,0 +1,9 @@
+[project]
+name = "qdrant-edge-1"
+version = "0.1.0"
+description = "Learning Example Qdrant Edge August 2026"
+readme = "README.md"
+requires-python = ">=3.12"
+dependencies = [
+    "qdrant-edge-py>=0.7.2",
+]
