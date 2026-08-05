@@ -131,3 +131,6 @@ want to index subfolders too, or broaden the glob if your files use `.jpeg`/`.pn
   image paths are just filesystem paths, so they can be opened directly (some
   terminals, like Kitty, iTerm2, or WezTerm, even support making these clickable via
   OSC 8 terminal hyperlinks).
+- index.py re-embeds every image in images/ on every run, not just new ones. 
+  It has no concept of "already indexed," so adding one new photo means re-running 
+  the CLIP model over all of them again.

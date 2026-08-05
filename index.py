@@ -1,5 +1,6 @@
 # index.py
 from pathlib import Path
+import time
 import uuid
 
 from setup import edge_shard, text_model, vision_model, VECTOR_NAME
@@ -13,6 +14,8 @@ def stable_id(path: Path) -> str:
 
 
 def main():
+    start_time = time.perf_counter()
+
     add_text(
         edge_shard=edge_shard,
         text_model=text_model,
@@ -28,6 +31,7 @@ def main():
         return
 
     for path in image_paths:
+        img_start = time.perf_counter()
         add_image(
             edge_shard=edge_shard,
             vision_model=vision_model,
@@ -35,9 +39,11 @@ def main():
             path=path,
             point_id=stable_id(path),
         )
-        print(f"Indexed {path}")
+        img_elapsed = time.perf_counter() - img_start
+        print(f"Indexed {path} ({img_elapsed:.2f}s)")
 
-    print(f"\nIndexed {len(image_paths)} image(s) from {IMAGES_DIR}/")
+    total_elapsed = time.perf_counter() - start_time
+    print(f"\nIndexed {len(image_paths)} image(s) from {IMAGES_DIR}/ in {total_elapsed:.2f}s")
 
 
 if __name__ == "__main__":

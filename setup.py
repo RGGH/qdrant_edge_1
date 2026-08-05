@@ -2,7 +2,16 @@
 from pathlib import Path
 
 from fastembed import ImageEmbedding, TextEmbedding
-from qdrant_edge import Distance, EdgeConfig, EdgeShard, EdgeVectorParams
+from qdrant_edge import (
+    Distance,
+    EdgeConfig,
+    EdgeShard,
+    EdgeVectorParams,
+    # ScalarQuantizationConfig,
+    # ScalarType,
+    TurboQuantQuantizationConfig,
+    TurboQuantBitSize,
+)
 
 # ---------------------------------------------------------------------
 # Configuration
@@ -43,7 +52,11 @@ config = EdgeConfig(
             size=VECTOR_DIMENSION,
             distance=Distance.Cosine,
         )
-    }
+    },
+    quantization_config=TurboQuantQuantizationConfig(
+        bits=TurboQuantBitSize.Bits2, 
+        always_ram=True,
+    ),
 )
 
 SHARD_DIR.mkdir(parents=True, exist_ok=True)
