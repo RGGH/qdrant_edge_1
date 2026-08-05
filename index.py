@@ -10,7 +10,10 @@ IMAGES_DIR = Path("images")
 
 
 def stable_id(path: Path) -> str:
-    return str(uuid.uuid5(uuid.NAMESPACE_URL, str(path)))
+    return str(uuid.uuid5(
+        uuid.NAMESPACE_URL,
+        str(path.resolve())
+    ))
 
 
 def main():

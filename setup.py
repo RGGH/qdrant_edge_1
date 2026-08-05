@@ -7,8 +7,8 @@ from qdrant_edge import (
     EdgeConfig,
     EdgeShard,
     EdgeVectorParams,
-    # ScalarQuantizationConfig,
-    # ScalarType,
+    # ~~ScalarQuantizationConfig~~
+    # ~~ScalarType~~
     TurboQuantQuantizationConfig,
     TurboQuantBitSize,
 )
